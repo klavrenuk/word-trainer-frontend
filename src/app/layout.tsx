@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={'h-full antialiased'}
+      className={'h-full antialiased bg-black text-white text-base leading-relaxed'}
     >
       <ConfigProvider {...antDesignTheme}>
         <body className={bodyClasses}>{children}</body>

@@ -1,23 +1,19 @@
 @import "tailwindcss";
+@import "../shared/styles/ant-design.scss";
 
 :root {
   --white: #ffffff;
   --black: #171717;
-  --blue: #1677ff
-}
-
-body {
-  background: var(--black);
-  color: var(--white);
- 
+  --blue: #1677ff;
 }
 
 html, body {
   height: 100%;
 }
 
-:root {
-  --ant-primary-color: var(--blue)
+body {
+  background: var(--black);
+  color: var(--white);
 }
 
 @layer utilities {
