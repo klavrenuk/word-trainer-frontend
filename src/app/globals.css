@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --white: #ffffff;
+  --black: #171717;
+  --blue: #1677ff
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+ 
+}
+
+html, body {
+  height: 100%;
+}
+
+:root {
+  --ant-primary-color: var(--blue)
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

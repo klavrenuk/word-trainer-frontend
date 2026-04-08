@@ -14,7 +14,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true",
+    "noFallthroughCasesInSwitch": true,
     "plugins": [
       {
         "name": "next"
