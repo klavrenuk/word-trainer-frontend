@@ -2,7 +2,7 @@ import { Roboto } from "next/font/google";
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
-import './globals.css'
+import '../shared/styles/globals.css'
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],

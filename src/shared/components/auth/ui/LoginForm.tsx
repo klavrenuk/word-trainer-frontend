@@ -14,10 +14,11 @@ const LoginForm = () => {
     }
 
     return (
-        <Form 
-        layout="vertical"
-        onFinish={onSubmit}
-        onFinishFailed={onSubmitFailed}
+        <Form
+            className="form-label-text-black"
+            layout="vertical"
+            onFinish={onSubmit}
+            onFinishFailed={onSubmitFailed}
         >
             <Form.Item 
                 label="Логин"
