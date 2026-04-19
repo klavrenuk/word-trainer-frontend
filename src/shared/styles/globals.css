@@ -36,7 +36,9 @@
 :root {
   --white: #ffffff;
   --black: #171717;
+  --black-secondary: #121212;
   --blue: #1677ff;
+  --violet: #722ed1;
 }
 
 html {
