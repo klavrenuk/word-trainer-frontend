@@ -5,8 +5,6 @@ import { MOCS_RESULTS } from '@/mocs/page-results'
 const Results = () => {
     return (
         <div className="flex items-center justify-center">
-            Page result
-
             <CardResults wordsLearned={MOCS_RESULTS.wordsLearned} />
         </div>
     )
