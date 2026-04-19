@@ -1,4 +1,4 @@
-import LoginForm from "@/shared/components/auth/ui/LoginForm"
+import LoginForm from "@/features/auth/ui/forms/LoginForm"
 import Card from '@/features/auth/ui/card/Card'
 
 const Login = () => {
