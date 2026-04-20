@@ -1,6 +1,8 @@
-import { Roboto } from "next/font/google"; 
+import { Roboto } from "next/font/google";
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
+
+import Aside from '@/shared/components/aside'
 
 import '../shared/styles/globals.css'
 
@@ -30,7 +32,15 @@ export default function RootLayout({
       className={'h-full antialiased bg-black text-white text-base leading-relaxed'}
     >
       <ConfigProvider {...antDesignTheme}>
-        <body className={bodyClasses}>{children}</body>
+        <body className={bodyClasses}>
+         <div className="grid-body">
+            <Aside />
+            
+            <main>
+              {children}
+            </main>
+          </div>
+        </body>
       </ConfigProvider>
     </html>
   );
