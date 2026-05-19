@@ -1,9 +1,11 @@
+import { fetchWithAuth } from '@/shared/api/fetchInstance'
+
 import type { User } from '@/entities'
 
 import { API_BASE_URL } from '@/shared/config/api'
 
 export const fetchProfile = async (): Promise<User> => {
-    const res = await fetch(`${API_BASE_URL}/api/profile`)
+    const res = await fetchWithAuth(`${API_BASE_URL}/api/profile`)
     return res.json()
 }
 
@@ -18,7 +20,7 @@ export const checkAuth = async (): Promise<{ user: User | null, isAuth: boolean 
             }
         }
 
-        const res = await fetch('/api/auth/me', {
+        const res = await fetchWithAuth('/api/auth/me', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
