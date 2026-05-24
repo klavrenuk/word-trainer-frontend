@@ -18,7 +18,7 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {filteredIndicators.map((indicator) => (
           <CardMetric
-            key={indicator.id}
+            key={indicator.key}
             title={indicator.title}
             value={indicator.value}
             icon={indicator.icon}
