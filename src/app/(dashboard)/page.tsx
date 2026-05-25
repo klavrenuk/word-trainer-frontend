@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import CardMetric from "@/shared/components/cards/CardMetric";
 
-import { MOC_StartData, indicators } from './constatns'
+import { MOC_StartData, indicators } from '../constatns'
 
 export default function Home() {
   const filteredIndicators = useMemo(() => {
