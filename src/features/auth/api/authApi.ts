@@ -15,7 +15,7 @@ export const login = async (data: LoginData): Promise<LoginResponse> => {
     return res.json()
 }
 
-export const register = async (data: RegisterData): Promise<LoginResponse> => {
+export const registration = async (data: RegisterData): Promise<LoginResponse> => {
     const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: 'POST',
         body: JSON.stringify(data)

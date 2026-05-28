@@ -1,12 +1,19 @@
 'use client'
 
+import { registration } from '@/features/auth'
+
 import { Form, Input, Button } from 'antd'
+
 import type { FormProps } from 'antd'
-import type { FormRegistration } from './types'
+import type { RegisterData } from '@/features/auth'
 
 const RegistrationForm = () => {
-    const onSubmit: FormProps<FormRegistration>['onFinish'] = values => {
+    const onSubmit: FormProps<RegisterData>['onFinish'] = async values => {
         console.log('onSubmit', values)
+
+        const { user } = await registration(values)
+
+        console.log('user', user)
     }
 
     const onSubmitFailed = (error: unknown) => {
@@ -24,6 +31,13 @@ const RegistrationForm = () => {
                 label='Логин'
                 name='login'
                 rules={[{ required: true, message: 'Пожалуйста, введите логин!' }]}
+            >
+                <Input placeholder='Введите логин' />
+            </Form.Item>
+            <Form.Item
+                label='Имя'
+                name='name'
+                rules={[{ required: true, message: 'Пожалуйста, введите имя!' }]}
             >
                 <Input placeholder='Введите логин' />
             </Form.Item>
