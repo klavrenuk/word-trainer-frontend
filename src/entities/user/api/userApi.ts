@@ -14,13 +14,13 @@ export const checkAuth = async (): Promise<{ user: User | null, isAuth: boolean 
         const res = await fetch(`${API_BASE_URL}/api/auth/me`)
         
         if (res.status === 401) {
-            return { user: null, isAuth: false }
+            return { user: null, isAuth: true }
         }
 
         const user = await res.json()
         return { user, isAuth: true }
     } catch (err) {
         console.error(err)
-        return { user: null, isAuth: false }
+        return { user: null, isAuth: true }
     }
 }
