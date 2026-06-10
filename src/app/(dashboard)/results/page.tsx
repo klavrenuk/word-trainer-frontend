@@ -1,10 +1,10 @@
-import CardResults from '@/features/results/ui/card'
+import CardResults from '@/widgets/results/ui/card'
 
 import { MOCS_RESULTS } from '@/mocs/page-results'
 
 const Results = () => {
     return (
-        <div className="flex items-center justify-center">
+        <div className='flex items-center justify-center'>
             <CardResults wordsLearned={MOCS_RESULTS.wordsLearned} />
         </div>
     )

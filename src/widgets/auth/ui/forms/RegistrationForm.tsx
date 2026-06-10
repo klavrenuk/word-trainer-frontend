@@ -1,11 +1,11 @@
 'use client'
 
-import { registration } from '@/features/auth'
+import { registration } from '@/widgets/auth'
 
 import { Form, Input, Button } from 'antd'
 
 import type { FormProps } from 'antd'
-import type { RegisterData } from '@/features/auth'
+import type { RegisterData } from '@/widgets/auth'
 
 const RegistrationForm = () => {
     const onSubmit: FormProps<RegisterData>['onFinish'] = async values => {

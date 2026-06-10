@@ -1,4 +1,4 @@
-export type { RegisterData } from './types/'
+export type { RegisterData } from './types'
 
 export { login, registration } from './api/authApi'
 

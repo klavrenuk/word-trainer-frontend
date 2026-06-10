@@ -7,7 +7,7 @@ export const navLinks:NavLink[] = [
     },
     {
         name: 'Начать обучение',
-        path: '/start-learning'
+        path: '/learn'
     },
     {
         name: 'Результаты',
