@@ -6,7 +6,8 @@ export interface LoginData {
 }
 
 export interface LoginResponse {
-    token: string;
+    access_token: string;
+    token_type: string;
     user: User;
 }
 
@@ -14,4 +15,15 @@ export interface RegisterData {
     username: string;
     password: string;
     name: string;
+}
+
+export type FieldType = {
+  login?: string;
+  password?: string;
+};
+
+export type FormRegistration = {
+  login: string;
+  name: string;
+  password: string;
 }

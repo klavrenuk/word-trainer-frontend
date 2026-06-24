@@ -1,11 +1,16 @@
 import { API_BASE_URL } from '@/shared/config/api'
 
-import { LoginData, LoginResponse, RegisterData } from '../types'
+import { LoginResponse, RegisterData } from '../types'
+import type { FieldType, FormRegistration } from '@/widgets/auth'
 
-export const login = async (data: LoginData): Promise<LoginResponse> => {
+export const login = async (data: FieldType): Promise<LoginResponse> => {
+    const formData = new FormData()
+    formData.append('login', data.login)
+    formData.append('password', data.password)
+
     const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
-        body: JSON.stringify(data)
+        body: formData
     })
 
     if (!res.ok) {
