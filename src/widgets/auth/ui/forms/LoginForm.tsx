@@ -6,6 +6,8 @@ import { message } from 'antd'
 
 import { login } from '@/widgets/auth'
 
+import { setToken } from '@/shared/lib/auth'
+
 import { Form, Input, Button } from 'antd'
 import type { FormProps } from 'antd'
 import type { FieldType } from './types'
@@ -16,16 +18,19 @@ const LoginForm = () => {
     const router = useRouter()
 
     const onSubmit: FormProps<FieldType>['onFinish'] = async values => {
-        console.log('onSubmit', values)
         setLoading(true)
 
         try {
-            const { access_token } = await login(values)
-
-            localStorage.setItem('token', access_token)
-            message.success('Вход выполнен')
-            router.push('/dashboard')
+            const { access_token, error } = await login(values)
             
+
+            if (error || !access_token) {
+                throw new Error(error)
+            }
+
+            setToken(access_token)
+            message.success('Вход выполнен')
+            router.push('/')
         } catch (err) {
             console.error(err)
             message.error('Неверный логин или пароль')

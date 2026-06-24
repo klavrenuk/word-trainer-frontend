@@ -6,6 +6,8 @@ import type { User } from '@/entities'
 
 import { fetchProfile } from '@/entities'
 
+import { LogoutBtn } from '@/features/auth'
+
 import { Input, Button } from 'antd'
 
 const ProfileUser = () => {
@@ -30,7 +32,7 @@ const ProfileUser = () => {
 
             <div>
                 <Button type="primary">Сохранить</Button>
-                <Button danger>Выйти</Button>
+                <LogoutBtn />
             </div>
         </div>
     )
