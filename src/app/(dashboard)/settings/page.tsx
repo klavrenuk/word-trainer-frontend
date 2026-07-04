@@ -1,4 +1,4 @@
-import { ProfileUser } from '@/entities/index'
+import { ProfileUser } from '@/entities'
 
 const Settings = () => {
     return <ProfileUser />
