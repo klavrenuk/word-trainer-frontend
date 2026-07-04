@@ -24,3 +24,21 @@ export const checkAuth = async (): Promise<{ user: User | null, isAuth: boolean 
         return { user: null, isAuth: true }
     }
 }
+
+export const changePassword = async (oldPassword: string, newPassword: string): Promise<void> => {
+    const res = await fetchWithAuth(`${API_BASE_URL}/api/change-password`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            old_password: oldPassword,
+            new_password: newPassword
+        })
+    })
+
+    if (!res.ok) {
+        const error = await res.json()
+        throw new Error(error.detail || 'Ошибка при изменении пароля')
+    }
+}

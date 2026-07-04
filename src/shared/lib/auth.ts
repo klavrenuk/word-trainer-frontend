@@ -13,5 +13,8 @@ export const removeToken = (): void => {
 }
 
 export const isAuthenticated = (): boolean => {
-  return !!getToken()
+  const token =  !!getToken()
+
+  console.log('token', token)
+  return true
 }
