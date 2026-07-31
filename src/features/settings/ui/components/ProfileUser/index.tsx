@@ -3,12 +3,16 @@
 import { useState, useEffect } from 'react'
 
 import type { User } from '@/entities'
-
-import { fetchProfile, FormChangePassword, TAB_LABELS, TAB_PROFILE, TAB_PASSWORD } from '@/entities'
+import { fetchProfile } from '@/entities'
 
 import { LogoutBtn } from '@/features/auth'
+import { ProfileContent } from '@/features/settings'
 
-import { Input, Button, Tabs } from 'antd'
+import { FormChangePassword, TAB_LABELS, TAB_PROFILE, TAB_PASSWORD } from '@/features/settings'
+
+import CardContainer from '@/shared/components/cards/CardContainer'
+
+import { Tabs } from 'antd'
 
 const ProfileUser = () => {
     const [user, setUser] = useState<User | null>(null)
@@ -25,41 +29,29 @@ const ProfileUser = () => {
         fetchProfileInfo()
     })
 
-    const profileContent = (
-        <div>
-            <div className="flex flex-col gap-4">
-                <Input placeholder="Имя" />
-            </div>
-
-            <div className="mt-4">
-                <Button type="primary">Сохранить</Button>
-            </div>
-        </div>
-    )
-
-    const passwordContent = <FormChangePassword />
-
     const items = [
         {
             key: TAB_PROFILE,
             label: TAB_LABELS[TAB_PROFILE],
-            children: profileContent
+            children: <ProfileContent />
         },
         {
             key: TAB_PASSWORD,
             label: TAB_LABELS[TAB_PASSWORD],
-            children: passwordContent
+            children: <FormChangePassword />
         }
     ]
 
     return (
-        <div>
+        <CardContainer>
+          <div className="flex flex-col gap-4">
             <Tabs activeKey={activeTab} onChange={setActiveTab} items={items} />
 
-            <div className="mt-4">
+            <div className="flex">
                 <LogoutBtn />
             </div>
-        </div>
+           </div>
+        </CardContainer>
     )
 }
 

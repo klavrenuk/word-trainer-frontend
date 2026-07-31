@@ -1,7 +1,7 @@
-import { ProfileUser } from '@/entities'
+import WidgetSettings from '@/widgets/settings'
 
 const Settings = () => {
-    return <ProfileUser />
+    return <WidgetSettings />
 }
 
 export default Settings

@@ -15,11 +15,12 @@ const LogoutButton = () => {
     }
 
     return (
-        <Button
+      <Button
+        className="w-full"
             danger
             onClick={handleLogout}
         >
-            Выйти
+          Выйти
         </Button>
     )
 }

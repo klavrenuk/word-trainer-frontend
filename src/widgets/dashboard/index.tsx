@@ -37,7 +37,11 @@ export const WidgetDashboard = ({ children }: DashboardLayoutProps) => {
             <div className={bodyClasses}>
                 <div className='grid-body'>
                     <Aside />
-                    <main className="py-5">{children}</main>
+                    <main className="py-5 px-4">
+                      <div className="container mx-auto">
+                        {children}
+                      </div>
+                    </main>
                 </div>
             </div>
         </ConfigProvider>

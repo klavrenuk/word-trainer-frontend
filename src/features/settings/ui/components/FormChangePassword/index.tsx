@@ -6,15 +6,12 @@ import { Input, Button, Form, message } from 'antd'
 
 import { changePassword } from '@/entities/user/api/userApi'
 
-interface FormValues {
-    oldPassword: string
-    newPassword: string
-}
+import type { FormPassword } from '@/features/settings'
 
 const FormChangePassword = () => {
     const [loading, setLoading] = useState(false)
 
-    const handleChangePassword = async (values: FormValues) => {
+    const handleChangePassword = async (values: FormPassword) => {
         setLoading(true)
         try {
             await changePassword(values.oldPassword, values.newPassword)
@@ -28,31 +25,33 @@ const FormChangePassword = () => {
     }
 
     return (
-        <Form<FormValues>
+        <Form<FormPassword>
             layout="vertical"
             onFinish={handleChangePassword}
-            className="max-w-md"
+            className="w-full"
         >
             <Form.Item
                 name="oldPassword"
-                label="Старый пароль"
-                rules={[{ required: true, message: 'Введите старый пароль' }]}
+                label={<span className="text-black">Старый пароль</span>}
+          rules={[{ required: true, message: 'Введите старый пароль' }]}
             >
                 <Input.Password placeholder="Введите старый пароль" />
             </Form.Item>
 
             <Form.Item
                 name="newPassword"
-                label="Новый пароль"
+                label={<span className="text-black">Новый пароль</span>}
                 rules={[{ required: true, message: 'Введите новый пароль' }]}
             >
                 <Input.Password placeholder="Введите новый пароль" />
             </Form.Item>
 
             <Form.Item>
-                <Button type="primary" htmlType="submit" loading={loading} block>
+              <div className="flex justify-end">
+                <Button type="primary" htmlType="submit" loading={loading}>
                     Изменить пароль
                 </Button>
+              </div>
             </Form.Item>
         </Form>
     )
