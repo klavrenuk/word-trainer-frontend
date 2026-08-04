@@ -1,11 +1,30 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+
+import type { UserProfile } from '@/entities/user'
+
 import { Form, Input, Button } from 'antd'
 
 import type { FormUserData } from '@/features/settings'
 
-const ProfileContent = () => {
+import { updateProfile } from '@/entities/user'
+
+interface Props {
+  user: UserProfile
+}
+
+const ProfileContent = ({user}: Props) => {
+  const [name, setName] = useState<string>('')
+
   const handleChangePassword = (values: FormUserData) => {
-    console.log(values)
+    updateProfile({ id: user.id, name: values.name})
   }
+
+  useEffect(() => {
+    setName(user?.username || '')
+  }, [user])
+
 
   return (
     <Form<FormUserData>
@@ -13,8 +32,13 @@ const ProfileContent = () => {
         onFinish={handleChangePassword}
         className="w-full"
     >
-      <Form.Item name="name" label={<span className="text-black">Имя</span>}>
-        <Input placeholder="Имя" />
+      <Form.Item label={<span className="text-black">Имя</span>}>
+        <Input
+          placeholder="Имя"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full"
+        />
       </Form.Item>
 
       <div className="mt-4 flex justify-end">

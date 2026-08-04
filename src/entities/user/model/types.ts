@@ -5,3 +5,8 @@ export interface User {
   login: string;
   name: string;
 }
+
+export interface UserProfile {
+  name: string;
+  id: string;
+}

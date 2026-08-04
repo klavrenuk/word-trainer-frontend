@@ -6,3 +6,8 @@ export interface FormPassword {
 export interface FormUserData {
   name: string
 }
+
+export interface Profile {
+  id: number;
+  name: string;
+}
