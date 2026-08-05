@@ -49,7 +49,7 @@ const ProfileUser = () => {
         {
             key: TAB_PASSWORD,
             label: TAB_LABELS[TAB_PASSWORD],
-            children: <FormChangePassword />
+            children: <FormChangePassword user={user} />
         }
     ]
 

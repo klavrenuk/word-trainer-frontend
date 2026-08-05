@@ -25,15 +25,16 @@ export const checkAuth = async (): Promise<{ user: User | null, isAuth: boolean 
     }
 }
 
-export const changePassword = async (oldPassword: string, newPassword: string): Promise<void> => {
-    const res = await fetchWithAuth(`${API_BASE_URL}/api/change-password`, {
-        method: 'POST',
+export const changePassword = async (oldPassword: string, newPassword: string, userId:string): Promise<void> => {
+    const res = await fetchWithAuth(`${API_BASE_URL}/api/password`, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            old_password: oldPassword,
-            new_password: newPassword
+            oldPassword: oldPassword,
+            newPassword: newPassword,
+            userId: userId
         })
     })
 

@@ -7,14 +7,21 @@ import { Input, Button, Form, message } from 'antd'
 import { changePassword } from '@/entities/user/api/userApi'
 
 import type { FormPassword } from '@/features/settings'
+import type { User } from '@/entities/user'
 
-const FormChangePassword = () => {
-    const [loading, setLoading] = useState(false)
+interface Props {
+  user: User
+}
+
+const FormChangePassword = ({user}: Props) => {
+  const [loading, setLoading] = useState(false)
+
+  console.log('user', user)
 
     const handleChangePassword = async (values: FormPassword) => {
         setLoading(true)
         try {
-            await changePassword(values.oldPassword, values.newPassword)
+            await changePassword(values.oldPassword, values.newPassword, user.id)
             message.success('Пароль успешно изменен')
         } catch (error) {
             console.error(error)
