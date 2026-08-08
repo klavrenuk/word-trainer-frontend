@@ -1,9 +1,13 @@
 import { Button } from 'antd'
 
-const StartGame = () => {
+interface Props {
+  startGame: () => void
+}
+
+const StartGame = ({startGame}: Props) => {
   return (
     <div>
-      <Button type='primary'>Start</Button>
+      <Button type='primary' onClick={startGame}>Start</Button>
     </div>
   )
 }

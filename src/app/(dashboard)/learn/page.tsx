@@ -1,4 +1,4 @@
-import WidgetLearn from '@/widgets/learn/ui/LearnWidget'
+import WidgetLearn from '@/widgets/learn'
 
 const LearnPage = () => {
     return (

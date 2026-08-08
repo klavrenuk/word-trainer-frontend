@@ -7,12 +7,15 @@ import CardContainer from '@/shared/components/cards/CardContainer'
 
 const WidgetLearn = () => {
   const [isGame, setIsGame] = useState<boolean>(false)
+
+  const onSwitchGame = () => setIsGame(!isGame)
+
   return (
     <div>
       {
         !isGame && <CardContainer>
           <div className="flex justify-center">
-            <StartGame />
+            <StartGame startGame={onSwitchGame} />
           </div>
         </CardContainer>
       }
