@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-import { Word, StartGame } from '@/features/words-study'
 import CardContainer from '@/shared/components/cards/CardContainer'
+import { StartGame, Game } from '@/features/words-study'
 
 const WidgetLearn = () => {
   const [isGame, setIsGame] = useState<boolean>(false)
@@ -21,7 +21,7 @@ const WidgetLearn = () => {
       }
 
       {
-        isGame && <Word />
+        isGame && <Game />
       }
     </div>
   )

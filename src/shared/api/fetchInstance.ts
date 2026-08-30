@@ -1,19 +1,15 @@
-export const fetchWithAuth = async (url: string, options?: RequestInit) => {
-  try {
-    const res = await fetch(url, options)
-    
-    if (res.status === 401) {
-//       localStorage.removeItem('token')
-//       window.location.href = '/login'
-      throw new Error('Unauthorized')
-    }
-    
-    return res
-  } catch (error) {
-    if ((error as TypeError).message === 'Failed to fetch') {
-//       localStorage.removeItem('token')
-//       window.location.href = '/login'
-    }
-    throw error
-  }
-}
+export const fetchWithAuth = async (url: string, params?: Record<string, any>, options?: RequestInit) => {
+  const query = new URLSearchParams({ user_id: '2', ...params });
+  const finalUrl = `${url}?${query.toString()}`;
+
+  const res = await fetch(finalUrl, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      ...options?.headers,
+    },
+  });
+
+  if (res.status === 401) throw new Error('Unauthorized');
+  return res;
+};
