@@ -7,7 +7,8 @@ import type { GameWord } from '@/features/words-study'
 import { Word } from '@/features/words-study'
 
 const Game = () => {
-  const [counter, setCounter] = useState<number>(0)
+  const [currentIndex, setCurrentIndex] = useState<number>(0)
+
   const [words, setWords] = useState<GameWord[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -17,16 +18,25 @@ const Game = () => {
       fetchGame()
         .then(res => {
           console.log('res', res)
+          setWords(res?.items || [])
           setIsLoading(false)
         })
     }
   }, [isLoading])
 
+  const nextWord = () => {
+    if (currentIndex < words.length - 1) {
+      setCurrentIndex(currentIndex + 1)
+    }
+  }
+
+  const currentWord = words[currentIndex]
+
   return (
     <section>
       <h3>Осталось </h3>
       <div>
-        <Word />
+        <Word word={currentWord} next={nextWord} />
       </div>
     </section>
   )
